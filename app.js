@@ -9,11 +9,16 @@ const loadTemperature = city => {
 }
 
 
+
 const displayTemperature = data => {
 
-    const temperature = document.getElementById('temperature');
-    temperature.innerText = data.main.temp;
+    setInnerText('temperature', data.main.temp);
+    setInnerText('condition', data.weather[0].main);
+}
 
+const setInnerText = (id, text) => {
+    const temperature = document.getElementById(id);
+    temperature.innerText = text;
 }
 
 document.getElementById('btn-search').addEventListener('click', function () {
